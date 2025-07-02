@@ -1,0 +1,360 @@
+.about-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: #f8fafc;
+  padding-top: 5rem;
+}
+
+/* Hero Section */
+.about-hero {
+  padding: 4rem 0;
+  background: 
+    radial-gradient(ellipse at center, rgba(251, 191, 36, 0.1) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(%23glow)"><circle cx="200" cy="300" r="2" fill="%23fbbf24" opacity="0.8"><animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/></circle><circle cx="600" cy="400" r="1.5" fill="%2393c5fd" opacity="0.6"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="4s" repeatCount="indefinite"/></circle><circle cx="800" cy="200" r="1" fill="%23c084fc" opacity="0.7"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite"/></circle></g></svg>') no-repeat;
+  animation: mysticalFloat 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes mysticalFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.7; }
+}
+
+.about-hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #f8fafc;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.about-quote {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 40px rgba(251, 191, 36, 0.1),
+    0 25px 50px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.about-quote::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 4rem;
+  color: #fbbf24;
+  font-family: 'Cinzel Decorative', serif;
+  line-height: 1;
+}
+
+.about-quote p {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin: 0 0 1rem 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+  text-shadow: 0 0 20px rgba(203, 213, 225, 0.3);
+}
+
+.about-quote cite {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fbbf24;
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+  display: block;
+  text-align: right;
+  font-style: normal;
+}
+
+.about-quote cite::before {
+  content: '— ';
+}
+
+/* Story Section */
+.about-story {
+  padding: 5rem 0;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.about-story-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.story-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.story-image {
+  position: relative;
+}
+
+.founder-image {
+  width: 100%;
+  border-radius: 1.5rem;
+  border: 2px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 
+    0 0 40px rgba(251, 191, 36, 0.2),
+    0 25px 50px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.founder-image:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 0 60px rgba(251, 191, 36, 0.4),
+    0 35px 70px rgba(0, 0, 0, 0.4);
+}
+
+.story-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+.character-stats {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(127, 29, 29, 0.1));
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  list-style: none;
+}
+
+.character-stats li {
+  font-family: 'MedievalSharp', serif;
+  color: #f8fafc;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(248, 250, 252, 0.3);
+}
+
+.story-text h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fbbf24;
+  margin: 2rem 0 1rem 0;
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+}
+
+.story-text p {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(203, 213, 225, 0.2);
+}
+
+/* Quest Nest Origin Section */
+.quest-nest-origin {
+  padding: 5rem 0;
+  background: 
+    linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)),
+    radial-gradient(ellipse at bottom, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+}
+
+.origin-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.origin-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+}
+
+.origin-content {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.6), rgba(30, 41, 59, 0.4));
+  padding: 3rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 40px rgba(251, 191, 36, 0.1),
+    0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.origin-content p {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  margin-bottom: 1.8rem;
+  text-align: left;
+  text-shadow: 0 0 10px rgba(226, 232, 240, 0.2);
+}
+
+.origin-content p:last-child {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #fbbf24;
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+}
+
+/* Vision Section */
+.vision-section {
+  padding: 5rem 0;
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.vision-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.vision-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.vision-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+.vision-text p {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(203, 213, 225, 0.2);
+}
+
+.collaborate-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+  color: #0f172a;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 20px rgba(251, 191, 36, 0.4),
+    0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-top: 1rem;
+}
+
+.collaborate-btn:hover {
+  background: linear-gradient(135deg, #fcd34d, #fbbf24, #f59e0b);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 30px rgba(251, 191, 36, 0.6),
+    0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.adventure-image {
+  width: 100%;
+  border-radius: 1.5rem;
+  border: 2px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 
+    0 0 40px rgba(251, 191, 36, 0.2),
+    0 25px 50px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.adventure-image:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 0 60px rgba(251, 191, 36, 0.4),
+    0 35px 70px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .about-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .about-quote {
+    padding: 2rem;
+  }
+  
+  .about-quote p {
+    font-size: 1.2rem;
+  }
+  
+  .story-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .story-title {
+    font-size: 2rem;
+  }
+  
+  .origin-title {
+    font-size: 2.2rem;
+  }
+  
+  .origin-content {
+    padding: 2rem;
+  }
+  
+  .vision-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .vision-title {
+    font-size: 2rem;
+  }
+}
