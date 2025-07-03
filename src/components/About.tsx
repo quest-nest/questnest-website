@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './About.css';
 
 const About: React.FC = () => {
+  const basePath = import.meta.env.BASE_URL;
+  
   return (
     <main className="about-page">
       {/* Hero Section with Quote */}
@@ -21,7 +24,7 @@ const About: React.FC = () => {
           <div className="story-content">
             <div className="story-image">
               <img 
-                src="/images/frank_about_us.webp" 
+                src={`${basePath}images/frank_about_us.webp`} 
                 alt="Frank Symons - Founder of Quest Nest"
                 className="founder-image"
               />
@@ -113,13 +116,13 @@ const About: React.FC = () => {
                 have shortened, since I became a dad. Proud that I've gotten this far! Still dreaming 
                 so much further...
               </p>
-              <a href="/partners" className="collaborate-btn">
+              <Link to="/contact" className="collaborate-btn">
                 Curious to collaborate?
-              </a>
+              </Link>
             </div>
             <div className="vision-image">
               <img 
-                src="/images/CharlieStranger.webp" 
+                src={`${basePath}images/CharlieStranger.webp`} 
                 alt="Quest Nest Adventure Art"
                 className="adventure-image"
               />

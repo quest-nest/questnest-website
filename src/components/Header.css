@@ -404,7 +404,11 @@
     color: #0f172a !important;
     font-weight: 600;
     border: 1px solid transparent !important;
-    padding: 0.875rem 1.5rem;
+    padding: 1rem 1.5rem !important;
+    margin: 0 0 0.5rem 0 !important;
+    width: 100%;
+    display: block;
+    text-align: center;
   }
 
   .nav-cta:hover {
