@@ -21,7 +21,7 @@ const About: React.FC = () => {
           <div className="story-content">
             <div className="story-image">
               <img 
-                src="/api/placeholder/400/600" 
+                src="/images/frank_about_us.webp" 
                 alt="Frank Symons - Founder of Quest Nest"
                 className="founder-image"
               />
@@ -119,7 +119,7 @@ const About: React.FC = () => {
             </div>
             <div className="vision-image">
               <img 
-                src="/api/placeholder/400/400" 
+                src="/images/CharlieStranger.webp" 
                 alt="Quest Nest Adventure Art"
                 className="adventure-image"
               />
