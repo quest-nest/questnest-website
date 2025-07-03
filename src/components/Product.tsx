@@ -12,6 +12,8 @@ const Product: React.FC = () => {
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [selectedVariantId, setSelectedVariantId] = useState<string>('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImageIndex, setModalImageIndex] = useState(0);
   
   const { addToCart, isLoading: cartLoading, error: cartError, clearError } = useCart();
 
@@ -44,6 +46,47 @@ const Product: React.FC = () => {
   const handleQuantityChange = (change: number) => {
     setQuantity(prev => Math.max(1, prev + change));
   };
+
+  const openModal = (imageIndex: number) => {
+    setModalImageIndex(imageIndex);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const nextImage = () => {
+    const images = ShopifyService.getAllImages(product!);
+    setModalImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    const images = ShopifyService.getAllImages(product!);
+    setModalImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  // Keyboard navigation for modal
+  useEffect(() => {
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (!isModalOpen) return;
+      
+      switch (e.key) {
+        case 'Escape':
+          closeModal();
+          break;
+        case 'ArrowLeft':
+          prevImage();
+          break;
+        case 'ArrowRight':
+          nextImage();
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeydown);
+    return () => document.removeEventListener('keydown', handleKeydown);
+  }, [isModalOpen]);
 
   const handleAddToCart = async () => {
     if (!product || !selectedVariantId) return;
@@ -97,7 +140,7 @@ const Product: React.FC = () => {
       <div className="product-container">
         {/* Image Gallery */}
         <div className="product-gallery">
-          <div className="main-image">
+          <div className="main-image" onClick={() => openModal(selectedImage)}>
             {displayImages[selectedImage] && (
               <img 
                 src={displayImages[selectedImage].url} 
@@ -105,7 +148,7 @@ const Product: React.FC = () => {
               />
             )}
             <div className="image-overlay">
-              <div className="zoom-icon">
+              <div className="zoom-icon" onClick={() => openModal(selectedImage)}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M21 21L16.65 16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -122,6 +165,7 @@ const Product: React.FC = () => {
                 key={image.id}
                 className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
                 onClick={() => setSelectedImage(index)}
+                onDoubleClick={() => openModal(index)}
               >
                 <img 
                   src={image.url} 
@@ -257,6 +301,44 @@ const Product: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      {isModalOpen && (
+        <div className="image-modal" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            
+            <button className="modal-nav modal-prev" onClick={prevImage}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            
+            <button className="modal-nav modal-next" onClick={nextImage}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            
+            {displayImages[modalImageIndex] && (
+              <img 
+                src={displayImages[modalImageIndex].url} 
+                alt={displayImages[modalImageIndex].altText || product.title}
+                className="modal-image"
+              />
+            )}
+            
+            <div className="modal-info">
+              <h3>{product.title}</h3>
+              <p>Image {modalImageIndex + 1} of {displayImages.length}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
