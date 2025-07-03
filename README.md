@@ -2,6 +2,7 @@
 
 A modern, mystical-themed website for QuestNest built with React, Vite, TypeScript, and Shopify integration.
 
+
 ## 🚀 Getting Started
 
 ### Prerequisites
