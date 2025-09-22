@@ -1,6 +1,6 @@
 ## Beyond the Dice: Crafting Memorable NPC Interactions
 
-![cool-dnd-background](https://www.questnestshop.com/cdn/shop/files/IMG_9237.jpg?v=1714576737&width=1800)
+![cool-dnd-background](https://images.pexels.com/photos/20393802/pexels-photo-20393802.jpeg?_gl=1*poqehc*_ga*NzQ4MzEwOTA2LjE3NTg1NzAwNzA.*_ga_8JE65Q40S6*czE3NTg1NzAwNzAkbzEkZzEkdDE3NTg1NzAxMjIkajgkbDAkaDA.)
 
 Welcome back, adventurers, to the **Scroll of Secrets**! Today, we're diving into one of the most vital, yet sometimes overlooked, aspects of any great Dungeons  and  Dragons game: **Non-Player Characters (NPCs)**. Sure, the thrilling combat and epic loot get the headlines, but the memorable interactions with a grumpy barkeep, a cryptic oracle, or a desperate peasant are what truly breathe life into your world.
 
